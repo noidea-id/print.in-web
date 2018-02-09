@@ -49,7 +49,7 @@ class LoginController extends Controller
         $auth_info->name = $user_info->name;
         $auth_info->email = $user_info->email;
         $auth_info->role = 'customer';
-        $auth_info->avatar = '/';
+        $auth_info->avatar = app()->make('url')->to('/placeholder/user.jpg');
         $auth_info->_token = $oauth_grant;
 
         return response()->json($auth_info);
