@@ -13,4 +13,12 @@ class Product extends Model
     {
         return $this->belongsTo('App\Category');
     }
+
+    /**
+     * Get the merchant that owns the product.
+     */
+    public function merchant()
+    {
+        return $this->belongsTo('App\Merchant');
+    }
 }
