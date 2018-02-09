@@ -45,7 +45,7 @@ class LoginController extends Controller
         $user_info = json_decode(app()->handle($user)->getContent());
 
         $auth_info = (object)[];
-        $auth_info->user_id = $user_info->id;
+        $auth_info->user_id = strval($user_info->id);
         $auth_info->name = $user_info->name;
         $auth_info->email = $user_info->email;
         $auth_info->role = 'customer';
