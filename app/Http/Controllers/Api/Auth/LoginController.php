@@ -48,6 +48,8 @@ class LoginController extends Controller
         $auth_info->user_id = $user_info->id;
         $auth_info->name = $user_info->name;
         $auth_info->email = $user_info->email;
+        $auth_info->role = 'customer';
+        $auth_info->avatar = '/';
         $auth_info->_token = $oauth_grant;
 
         return response()->json($auth_info);
