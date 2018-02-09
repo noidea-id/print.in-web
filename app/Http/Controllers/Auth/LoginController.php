@@ -28,6 +28,19 @@ class LoginController extends Controller
     protected $redirectTo = '/home';
 
     /**
+     * Get the login username to be used by the controller.
+     *
+     * @return string
+     */
+    public function username()
+    {
+        // Check whether the given login input is an email.
+        $field = filter_var(request('login'), FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+        request()->merge([$field => request('login')]);
+        return $field;
+    }
+
+    /**
      * Create a new controller instance.
      *
      * @return void
